@@ -20,4 +20,14 @@ def register(full_name, email, age:int=None):
 
 ## Details
 
-The 
+The function arguments are inspected and used to extract the values from the request
+GET/POST data (via request.values).  If type annotations are specified, the incoming
+values will be instantiated as that type.  If "\*\*kwargs" is included, remaining GET/POST
+values are placed there, otherwise they are ignored.
+
+## Why?
+
+I understand the arguments for using path-based arguments.
+
+In my case, we had existing code using mod\_python Publisher semantics that we wanted to
+port to Python3 and Flask, making as few changes to the other parts of the code as possible.
